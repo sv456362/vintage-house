@@ -36,7 +36,7 @@
             margin-bottom: 30px;
             line-height: 1.5;
         }
-        /* Место под ваше изображение/гифку */
+        /* Место под ваше изображение или GIF */
         .placeholder-image {
             width: 100%;
             height: 350px;
@@ -51,7 +51,7 @@
         }
         .offer-btn {
             display: inline-block;
-            background-color: #ff3366; /* Яркий цвет для целевого действия */
+            background-color: #ff3366;
             color: #ffffff;
             text-decoration: none;
             padding: 18px 60px;
@@ -72,14 +72,30 @@
         <h2>Vintage Girls</h2>
         <p class="intro-text">Explore our exclusive collection of classic retro aesthetics and timeless beauty. Private access granted.</p>
         
-        <!-- Замените этот блок на вашу картинку, когда она будет готова -->
+        <!-- Сюда вы можете вставить картинку через тег <img>, когда она будет готова -->
         <div class="placeholder-image">
             [ Место для вашего фото / GIF / Карусели ]
         </div>
         
-        <!-- Ссылка на ваш конечный лендинг (оффер) -->
-        <a href="ССЫЛКА_НА_ВАШ_ОФФЕР" class="offer-btn">ACCESS NOW</a>
+        <!-- КНОПКА ДЛЯ ТДС: Замените href на адрес вашей ТДС -->
+        <a href="https://your-tds-domain.com" id="offerLink" class="offer-btn">ACCESS NOW</a>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Считываем точный слаг из адресной строки (например, "?reddit")
+            const currentSlug = window.location.search;
+
+            // 2. Если слаг передан, приклеиваем его в самый конец адреса ТДС
+            if (currentSlug) {
+                const offerBtn = document.getElementById("offerLink");
+                const baseHref = offerBtn.href;
+
+                // Скрипт соединяет адрес ТДС со слагом. На выходе: https://site.com
+                offerBtn.href = baseHref + currentSlug;
+            }
+        });
+    </script>
 
 </body>
 </html>
